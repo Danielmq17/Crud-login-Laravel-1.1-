@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MedicamentosController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PacientesController;
 
@@ -20,6 +21,8 @@ Route::get('/', function () {
 
 Route::middleware(['auth:sanctum',config('jetstream.auth_session'),'verified'])->group(function () {
     Route::resource('/pacientes', PacientesController::class);
+    Route::resource('/medicamentos', MedicamentosController::class);
+
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
